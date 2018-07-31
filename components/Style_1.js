@@ -1,37 +1,50 @@
 import React, {Component} from 'react';
-import { Link } from 'react-router-dom';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
+import history from '../history'
 
 class Style_1 extends Component {
   constructor(){
     super();
     this.state = {
-        count: 1,
-        label: "ボタン"
+        buttonNum: 0
     };
   }
 
-  onClick(){
+  AddButton() {
     this.setState({
-      count: this.state.count+1,
-      label: "ボタン" + this.state.count.toString()
+      buttonNum: this.state.buttonNum + 1,
     });
+  }
+
+  Deletebutton() {
+    if( 0 < this.state.buttonNum ) {
+      this.setState({
+        buttonNum: this.state.buttonNum - 1,
+      });
+    }
   }
 
   RenderButton() {
     let buttonList = [];
-    for(let i=0; i < this.state.count; i++) {
-      buttonList.push( <Button onClick={()=> this.onClick() }>{"ボタン" + (i+1)}</Button> );
+    for(let i=0; i < this.state.buttonNum; i++) {
+      buttonList.push( <Button key={i.toString()} onClick={()=> this.AddButton() }>{"ボタン" + (i+1)}</Button> );
     }
     return buttonList;  
   }
 
   render(){
-
     return (
-    <div>
-      {this.RenderButton()}
-    </div>
+      <React.Fragment>
+        <Button　onClick={()=> history.push('/') }>戻る</Button>
+        <Button　onClick={()=> this.AddButton() }>追加</Button>
+        <Button　onClick={()=> this.Deletebutton() }>削除</Button>
+        <div>
+          {this.RenderButton()}
+        </div>
+        <div>
+          {"ボタン" + this.state.buttonNum + "が現れた!"}
+        </div>
+      </React.Fragment>
     )
   }
 }
