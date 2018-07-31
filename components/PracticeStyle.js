@@ -1,4 +1,4 @@
-import React , {Component}from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components';
 import tasksReducer from '../reducers/tasks';
@@ -268,12 +268,4 @@ const Button_shadow = (props) => {
   return (
     <p><A_button>{props.label}</A_button></p>
   )
-}
-
-class BottunAdition extends Component {
-  render() {
-    return (
-      <div></div>
-    );
-  }
 }
