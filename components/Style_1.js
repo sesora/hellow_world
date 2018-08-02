@@ -41,9 +41,6 @@ class Style_1 extends Component {
         <div>
           {this.RenderButton()}
         </div>
-        <div>
-          {"ボタン" + this.state.buttonNum + "が現れた!"}
-        </div>
       </React.Fragment>
     )
   }
