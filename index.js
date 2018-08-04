@@ -5,11 +5,11 @@ import { Route }            from 'react-router-dom';
 import { ConnectedRouter }   from 'react-router-redux';
 //import createBrowserHistory from 'history/createBrowserHistory';
 import history from './history'
-import TodoApp              from './containers/TodoApp';
-import Error                from './components/Error';
-import PracticeStyle                from './components/PracticeStyle';
-import Style_1                from './components/Style_1';
-import Menu                from './components/Menu';
+import TodoApp              from './app/containers/TodoApp';
+import Error                from './error/components/Error';
+import PracticeStyle                from './practiceStyle/components/PracticeStyle';
+import Style_1                from './style1/components/Style_1';
+import Menu                from './menu/components/Menu';
 import createStore          from './store';
 
 //const history = createBrowserHistory(); // historyのインスタンスを生成
@@ -22,7 +22,7 @@ render(
         <Route exact path="/"      component={TodoApp} />
         <Route exact path="/error" component={Error} />
         <Route exact path="/PracticeStyle" component={PracticeStyle} />
-        <Route exact path="/style_1" component={Style_1} />
+        <Route exact path="/style1" component={Style_1} />
         <Route exact path="/menu" component={Menu} />
       </div> 
     </ConnectedRouter>
