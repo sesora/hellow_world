@@ -10,7 +10,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import './TodoApp.css';
 import history from '../../history'
 
-export default function TodoApp({ task, tasks, inputTask, addTask, redirectToError }) {
+export default function TodoApp({ task, tasks, inputTask, addTask, deleteTask, redirectToError }) {
   return (
     <div>
       <Reboot />
@@ -24,19 +24,18 @@ export default function TodoApp({ task, tasks, inputTask, addTask, redirectToErr
       <div style={{ padding:'16px' }}>
         <Input onChange={(e) => inputTask(e.target.value)} />
         <Button raised color="primary" onClick={() => addTask(task)}>add</Button>
-        <List>
-          <ReactCSSTransitionGroup transitionName="example" transitionEnterTimeout={300}>
+        <Button raised color="primary" onClick={() => deleteTask()}>delete</Button>
+        <ul>
             {
               tasks.map(function(item, i) {
                 return (
-                  <ListItem key={i}>
-                    <ListItemText primary={`・${item}`} />
-                  </ListItem>
+                  <li key={i}>
+                    {item}
+                  </li>
                 );
               })
             }
-          </ReactCSSTransitionGroup>
-        </List>
+        </ul>
       </div>
       <button onClick={() => redirectToError()} >エラーページへ</button>
       <button onClick={() => history.push('/PracticeStyle')} >style練習</button>

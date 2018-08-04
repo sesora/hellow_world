@@ -15,6 +15,13 @@ export default function tasksReducer(state = initialState, action) {
         ...state,
         tasks: state.tasks.concat([action.payload.task])
       };
+    case 'DELETE_TASK': 
+      const tasks = [...state.tasks]; 
+      tasks.pop();
+      return {
+        ...state,
+        tasks: tasks.concat()
+      };
     default:
       return state;
   }

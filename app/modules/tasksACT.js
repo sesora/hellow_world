@@ -11,3 +11,7 @@ export const addTask = (task) => ({
     task
   }
 });
+
+export const deleteTask = () => ({
+  type: 'DELETE_TASK'
+});
