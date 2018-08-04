@@ -4,7 +4,7 @@ import {
   applyMiddleware
 } from 'redux';
 import { routerReducer, routerMiddleware } from 'react-router-redux';
-import tasksReducer from '../app/modules/tasksRDC';
+import tasksReducer from '../todoApp/modules/tasksRDC';
 
 // historyは[src/index.js]から渡すようにする
 export default function createStore(history) {

@@ -35,10 +35,8 @@ export default function TodoApp({ task, tasks, inputTask, addTask, deleteTask, r
             }
         </ul>
       </div>
+      <button onClick={() => history.push('/')} >戻る</button>
       <button onClick={() => redirectToError()} >エラーページへ</button>
-      <button onClick={() => history.push('/PracticeStyle')} >style練習</button>
-      <button onClick={() => history.push('/style1')} >style_1</button>
-      <button onClick={() => history.push('/menu')} >menu練習</button>
     </div>
   )
 }
