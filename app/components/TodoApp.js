@@ -5,8 +5,6 @@ import Toolbar   from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 import Button    from 'material-ui/Button';
 import Input     from 'material-ui/Input';
-import List, { ListItem, ListItemText} from 'material-ui/List';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import './TodoApp.css';
 import history from '../../history'
 
@@ -23,7 +21,7 @@ export default function TodoApp({ task, tasks, inputTask, addTask, deleteTask, r
       </AppBar>
       <div style={{ padding:'16px' }}>
         <Input onChange={(e) => inputTask(e.target.value)} />
-        <Button raised color="primary" onClick={() => addTask(task)}>add</Button>
+        <Button raised color="primary" onClick={() => task && addTask(task)}>add</Button>
         <Button raised color="primary" onClick={() => deleteTask()}>delete</Button>
         <ul>
             {
