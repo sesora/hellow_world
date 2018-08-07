@@ -12,6 +12,13 @@ export const addTask = (task) => ({
   }
 });
 
-export const deleteTask = () => ({
-  type: 'DELETE_TASK'
+export const deleteTask = (listNum) => ({
+  type: 'DELETE_TASK',
+  payload: {
+    listNum
+  }
+});
+
+export const deleteAllTask = () => ({
+  type: 'DELETE_All_TASK'
 });
