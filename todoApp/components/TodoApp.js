@@ -1,4 +1,4 @@
-import React     from 'react';
+import React, { Component } from 'react';
 import Reboot    from 'material-ui/Reboot';
 import AppBar    from 'material-ui/AppBar';
 import Toolbar   from 'material-ui/Toolbar';
@@ -8,48 +8,47 @@ import Input     from 'material-ui/Input';
 import './TodoApp.css';
 import history from '../../history'
 
-export default function TodoApp({ task, tasks, inputTask, addTask, deleteTask, deleteAllTask, redirectToError }) {
-  return (
-    <div>
-      <Reboot />
-      <AppBar position="static">
-        <Toolbar>
-          <Typography type="title" color="inherit">
-            TodoApp
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <div style={{ padding:'16px' }}>
-        <Input onChange={(e) => inputTask(e.target.value)} value={task}/>
-        <Button raised color="primary" onClick={() => task && addTask(task)}>add</Button>
-        <Button raised color="primary" onClick={() => deleteAllTask()}>deleteAll</Button>
-        <ul>
-            {
-              tasks.map(function(item, i) {
-                return (
-                  <li key={i}>
-                    <TodoList item={item} num={i} deleteTask={deleteTask}></TodoList>
-                  </li>
-                );
-              })
-            }
-        </ul>
+class TodoApp extends Component {
+  render() {
+    return (
+      <div>
+        <Reboot />
+        <AppBar position="static">
+          <Toolbar>
+            <Typography type="title" color="inherit">
+              TodoApp
+            </Typography>
+          </Toolbar>
+        </AppBar>
+        <div style={{ padding:'16px' }}>
+          <Input onChange={(e) => this.props.inputTask(e.target.value)} value={this.props.task}/>
+          <Button raised color="primary" onClick={() => this.props.task && this.props.addTask(this.props.task)}>add</Button>
+          <Button raised color="primary" onClick={() => this.props.deleteAllTask()}>deleteAll</Button>
+          <TodoList tasks={this.props.tasks} deleteTask={this.props.deleteTask}></TodoList>
+        </div>
+        <button onClick={() => history.push('/')} >戻る</button>
+        <button onClick={() => this.props.redirectToError()} >エラーページへ</button>
       </div>
-      <button onClick={() => history.push('/')} >戻る</button>
-      <button onClick={() => redirectToError()} >エラーページへ</button>
-    </div>
-  )
+    )
+  }
 }
 
 function TodoList(props) {
-  console.log(props.deleteTask);
   return (
-    <React.Fragment>
-      <div>
-        {props.item}
-        <button onClick={() => history.push('/')} >更新</button>
-        <button onClick={() => props.deleteTask(props.num)} >削除</button>
-      </div>
-    </React.Fragment>
+    <ul>
+      {
+        props.tasks.map(function(item, i) {
+          return (
+            <li key={i}>
+              {item}
+              <button onClick={() => history.push('/')} >更新</button>
+              <button onClick={() => props.deleteTask(i)} >削除</button>
+            </li>
+          );
+        })
+      }
+    </ul>
   )
 }
+
+export default TodoApp;
