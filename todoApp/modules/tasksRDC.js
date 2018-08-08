@@ -1,6 +1,7 @@
 const initialState = {
   task: '',
-  tasks: []
+  tasks: [],
+  isModalOpen: false
 };
   
 export default function tasksReducer(state = initialState, action) {
@@ -28,6 +29,18 @@ export default function tasksReducer(state = initialState, action) {
       return {
         ...state,
         tasks: []
+      };
+    case 'Toggle_Modal':
+      return {
+        ...state,
+        isModalOpen: !state.isModalOpen
+      };
+    case 'Update_Task':
+      const tasks = [...state.tasks];
+      tasks[action.payload.listNum] = action.payload.task
+      return {
+        ...state,
+        isModalOpen: !state.isModalOpen
       };
     default:
       return state;

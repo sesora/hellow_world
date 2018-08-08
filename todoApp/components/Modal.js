@@ -29,15 +29,17 @@ class Modal extends React.Component {
       padding: 30
     };
 
+    const updateTask = ()=> {
+      this.props.updateTask();
+      this.props.onClose();
+    }
+
     return (
       <div className="backdrop" style={{backdropStyle}}>
         <div className="modal" style={{modalStyle}}>
-          {this.props.children}
-
           <div className="footer">
-            <button onClick={this.props.onClose}>
-              Close
-            </button>
+            <input/>
+            <button onClick={()=> updateTask()}>更新</button>
           </div>
         </div>
       </div>
