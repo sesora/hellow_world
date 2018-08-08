@@ -38,7 +38,10 @@ class Modal extends React.Component {
     }
 
     const updateTask = ()=> {
-      this.props.updateTask(this.newTask);
+      if(this.newTask) {
+        this.props.updateTask(this.newTask);
+        this.newTask = "";
+      }
       this.props.onClose();
     }
 
