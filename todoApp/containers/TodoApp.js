@@ -28,11 +28,11 @@ function mapDispaatchToProps(dispatch) {
     redirectToError() {
       dispatch(push('/error'));
     },
-    toggleModal() {
-      dispatch(toggleModal());
+    toggleModal(listNum = -1) {
+      dispatch(toggleModal(listNum));
     },
-    updateTask(task, listNum) {
-      dispatch(updateTask(task, listNum));
+    updateTask(task) {
+      dispatch(updateTask(task));
     }
   };
 }

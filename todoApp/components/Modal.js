@@ -2,6 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class Modal extends React.Component {
+  constructor(props) {
+    super(props);
+    this.newTask = "";
+  }
   render() {
     // Render nothing if the "show" prop is false
     if(!this.props.show) {
@@ -29,8 +33,12 @@ class Modal extends React.Component {
       padding: 30
     };
 
+    const onChange = (value)=> {
+      this.newTask = value;
+    }
+
     const updateTask = ()=> {
-      this.props.updateTask();
+      this.props.updateTask(this.newTask);
       this.props.onClose();
     }
 
@@ -38,7 +46,7 @@ class Modal extends React.Component {
       <div className="backdrop" style={{backdropStyle}}>
         <div className="modal" style={{modalStyle}}>
           <div className="footer">
-            <input/>
+            <input onChange={(e) => onChange(e.target.value)}/>
             <button onClick={()=> updateTask()}>更新</button>
           </div>
         </div>

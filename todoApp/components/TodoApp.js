@@ -50,7 +50,7 @@ function TodoList(props) {
           return (
             <li key={i}>
               {item}
-              <button onClick={() => props.openModal()} >更新</button>
+              <button onClick={() => props.openModal(i)} >更新</button>
               <button onClick={() => props.deleteTask(i)} >削除</button>
             </li>
           );

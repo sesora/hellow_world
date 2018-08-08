@@ -1,7 +1,8 @@
 const initialState = {
   task: '',
   tasks: [],
-  isModalOpen: false
+  isModalOpen: false,
+  modalNum: -1
 };
   
 export default function tasksReducer(state = initialState, action) {
@@ -33,14 +34,17 @@ export default function tasksReducer(state = initialState, action) {
     case 'Toggle_Modal':
       return {
         ...state,
-        isModalOpen: !state.isModalOpen
+        isModalOpen: !state.isModalOpen,
+        modalNum: action.payload.listNum
       };
     case 'Update_Task':
       const tasks = [...state.tasks];
-      tasks[action.payload.listNum] = action.payload.task
+      console.log(state.modalNum);
+      console.log(action.payload.task);
+      tasks[state.modalNum] = action.payload.task
       return {
         ...state,
-        isModalOpen: !state.isModalOpen
+        tasks: tasks
       };
     default:
       return state;

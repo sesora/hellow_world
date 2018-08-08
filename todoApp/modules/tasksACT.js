@@ -23,14 +23,16 @@ export const deleteAllTask = () => ({
   type: 'DELETE_All_TASK'
 });
 
-export const toggleModal = () => ({
-  type: 'Toggle_Modal'
+export const toggleModal = (listNum) => ({
+  type: 'Toggle_Modal',
+  payload: {
+    listNum
+  }
 });
 
-export const updateTask = (task, listNum) => ({
+export const updateTask = (task) => ({
   type: 'Update_Task',
   payload: {
-    task: task,
-    listNum: listNum
+    task: task
   }
 });
