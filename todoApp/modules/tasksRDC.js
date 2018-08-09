@@ -39,8 +39,6 @@ export default function tasksReducer(state = initialState, action) {
       };
     case 'Update_Task':
       const tasks = [...state.tasks];
-      console.log(state.modalNum);
-      console.log(action.payload.task);
       tasks[state.modalNum] = action.payload.task
       return {
         ...state,
