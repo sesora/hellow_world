@@ -27,7 +27,7 @@ class TodoApp extends Component {
           <Button raised color="primary" onClick={() => this.props.deleteAllTask()}>deleteAll</Button>
           <TodoList tasks={this.props.tasks} openModal={this.props.toggleModal} deleteTask={this.props.deleteTask}></TodoList>
         </div>
-        <Modal show={this.props.isModalOpen} onClose={this.props.toggleModal} updateTask={this.props.updateTask}></Modal>
+        <Modal isShow={this.props.isModalOpen} onClose={this.props.toggleModal} updateTask={this.props.updateTask}></Modal>
         <button onClick={() => history.push('/')} >戻る</button>
         <button onClick={() => this.props.redirectToError()} >エラーページへ</button>
       </div>

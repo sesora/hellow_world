@@ -1,0 +1,33 @@
+//コンポーネントの作成
+class Number extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  componentWillMount(){
+    console.log("コンポーネントのマウント前")
+  }
+  componentDidMount(){
+    console.log("コンポーネントのマウント後")
+  }
+  componentWillReceiveProps(){
+    console.log("コンポーネントが受け取るpropsが変化")
+  }
+  shouldComponentUpdate(){
+    console.log("コンポーネントがアップデートされる前1")
+    return true;
+  }
+  componentWillUpdate(){
+    console.log("コンポーネントがアップデートされる前2")
+  }
+  componentDidUpdate(){
+    console.log("コンポーネントがアップデートされた後")
+  }
+  componentWillUnmount(){
+    console.log("コンポーネントがアンマウントされた後")
+  }
+  render() {
+    return (
+      &lt;div>コンポーネント</div>
+    )
+  }
+};

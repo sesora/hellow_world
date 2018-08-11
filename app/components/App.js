@@ -10,7 +10,7 @@ export default function App() {
         <ul>
           <li onClick={() => history.push('/todoApp')} >todoApp</li>
           <li onClick={() => history.push('/practiceStyle')} >style練習</li>
-          <li onClick={() => history.push('/style1')} >style1</li>
+          <li onClick={() => history.push('/style1')} >button</li>
           <li onClick={() => history.push('/menu')} >menu練習</li>
         </ul>
       </nav>
