@@ -36,6 +36,18 @@ class TodoApp extends Component {
 }
 
 function TodoList(props) {
+
+
+  let list = props.tasks.map(function(item, i) {
+    return (
+      <li key={i}>
+        {item}
+        <button onClick={() => props.openModal(i)} >変更</button>
+        <button onClick={(e) => deleteTask(e,i)} >削除</button>
+      </li>
+    );
+  }) 
+
   const deleteTask = (e, i)=> {
     e.target.parentNode.animate({opacity: [1, 0], marginLeft: ["0px", "-80px"]}, 300).onfinish = ()=>{
       props.deleteTask(i);
