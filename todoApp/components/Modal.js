@@ -9,11 +9,6 @@ class Modal extends React.Component {
     this.onKeyDown = this.onKeyDown.bind(this);
   }
 
-  // componentDidMount(){
-  //   console.log("コンポーネントのマウント後")
-  //   document.addEventListener("keydown", (e)=>{this.onKeyDown(e)})
-  // }
-
   componentDidUpdate() {
     this.newTask = "";
     if( this.props.isShow ) {
@@ -41,6 +36,8 @@ class Modal extends React.Component {
         this.refs.firstFocus.focus();
         e.preventDefault();
       }
+    }else if (e.key === "Enter") {
+      this.updateTask();
     }
   }
 
